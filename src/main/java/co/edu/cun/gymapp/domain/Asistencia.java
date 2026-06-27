@@ -32,4 +32,7 @@ public class Asistencia {
 
 	@Column(nullable = false)
 	private LocalDateTime fecha;
+
+	@Column(nullable = false)
+	private Boolean estado;
 }

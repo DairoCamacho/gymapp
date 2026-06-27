@@ -37,6 +37,9 @@ public class Usuario {
 	@Column(nullable = false, unique = true)
 	private String email;
 
+	@Column(nullable = false)
+	private Boolean estado;
+
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Membresia> membresias = new ArrayList<>();
 
