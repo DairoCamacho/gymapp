@@ -11,7 +11,7 @@ import co.edu.cun.gymapp.domain.Asistencia;
 @Repository
 public interface AsistenciaRepository extends JpaRepository<Asistencia, Long> {
 
-	List<Asistencia> findByUsuarioId(Long usuarioId);
+	List<Asistencia> findByUsuarioIdAndEstadoTrue(Long usuarioId);
 
-	List<Asistencia> findByUsuarioIdAndFechaBetween(Long usuarioId, LocalDateTime inicio, LocalDateTime fin);
+	List<Asistencia> findByUsuarioIdAndEstadoTrueAndFechaBetween(Long usuarioId, LocalDateTime inicio, LocalDateTime fin);
 }

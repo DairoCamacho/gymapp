@@ -1,5 +1,6 @@
 package co.edu.cun.gymapp.persistence;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -10,7 +11,11 @@ import co.edu.cun.gymapp.domain.Usuario;
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 
-	Optional<Usuario> findByEmail(String email);
+	List<Usuario> findByEstadoTrue();
 
-	boolean existsByEmail(String email);
+	Optional<Usuario> findByIdAndEstadoTrue(Long id);
+
+	Optional<Usuario> findByEmailAndEstadoTrue(String email);
+
+	boolean existsByEmailAndEstadoTrue(String email);
 }
