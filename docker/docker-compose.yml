@@ -1,0 +1,10 @@
+services:
+  mysql-db:
+    image: mysql:latest
+    container_name: mysql-pruebas
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: mi_contrasenia_secreta
+      MYSQL_DATABASE: mi_base_de_datos
+    ports:
+      - "3306:3306"

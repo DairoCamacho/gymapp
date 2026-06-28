@@ -73,6 +73,15 @@ public class PlanServiceImpl implements PlanService {
 		planRepository.save(plan);
 	}
 
+	@Override
+	@Transactional
+	public void activar(Long id) {
+		Plan plan = planRepository.findById(id)
+				.orElseThrow(() -> new EntityNotFoundException("Plan no encontrado con id: " + id));
+		plan.setEstado(true);
+		planRepository.save(plan);
+	}
+
 	private PlanResponse toResponse(Plan plan) {
 		return new PlanResponse(plan.getId(), plan.getNombre(), plan.getDescripcion(), plan.getPrecio(),
 				plan.getTiempo(), plan.getEstado());

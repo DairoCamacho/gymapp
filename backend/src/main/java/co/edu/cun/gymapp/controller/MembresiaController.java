@@ -59,4 +59,10 @@ public class MembresiaController {
 		membresiaService.anular(id);
 		return ResponseEntity.noContent().build();
 	}
+
+	@org.springframework.web.bind.annotation.PatchMapping("/{id}/activar")
+	public ResponseEntity<Void> activar(@PathVariable Long id) {
+		membresiaService.activar(id);
+		return ResponseEntity.noContent().build();
+	}
 }

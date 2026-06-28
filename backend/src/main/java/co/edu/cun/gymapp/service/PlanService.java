@@ -18,4 +18,6 @@ public interface PlanService {
 	PlanResponse actualizar(Long id, PlanRequest request);
 
 	void eliminar(Long id);
+
+	void activar(Long id);
 }

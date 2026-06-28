@@ -60,4 +60,10 @@ public class PlanController {
 		planService.eliminar(id);
 		return ResponseEntity.noContent().build();
 	}
+
+	@org.springframework.web.bind.annotation.PatchMapping("/{id}/activar")
+	public ResponseEntity<Void> activar(@PathVariable Long id) {
+		planService.activar(id);
+		return ResponseEntity.noContent().build();
+	}
 }

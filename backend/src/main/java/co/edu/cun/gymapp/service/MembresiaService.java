@@ -18,4 +18,6 @@ public interface MembresiaService {
 	MembresiaResponse registrar(MembresiaRequest request);
 
 	void anular(Long id);
+
+	void activar(Long id);
 }

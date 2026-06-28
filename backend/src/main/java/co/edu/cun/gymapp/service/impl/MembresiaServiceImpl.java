@@ -91,6 +91,15 @@ public class MembresiaServiceImpl implements MembresiaService {
 		membresiaRepository.save(membresia);
 	}
 
+	@Override
+	@Transactional
+	public void activar(Long id) {
+		Membresia membresia = membresiaRepository.findById(id)
+				.orElseThrow(() -> new EntityNotFoundException("Membresía no encontrada con id: " + id));
+		membresia.setEstado(true);
+		membresiaRepository.save(membresia);
+	}
+
 	private LocalDate calcularFechaInicio(Long usuarioId, LocalDate hoy) {
 		Optional<Membresia> vigente = membresiaRepository
 				.findTopByUsuarioIdAndEstadoTrueAndFechaFinAfterOrderByFechaFinDesc(usuarioId, hoy);
